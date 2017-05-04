@@ -4,7 +4,7 @@ image: Visual Studio 2015
 
 environment:
   APPVEYOR_RDP_PASSWORD: fixm3-wtf
-  RUBY_VERSION: 23
+  RUBY_VERSION: 23-x64
  # PATH: C:\Ruby%RUBY_VERSION%\bin;C:\Ruby%RUBY_VERSION%\DevKit\bin;C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1;%PATH%
   
  
@@ -14,6 +14,7 @@ before_build:
   - SET PATH=C:\Ruby%RUBY_VERSION%\bin;C:\Ruby%RUBY_VERSION%\DevKit\bin;C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1;%PATH%
   - ruby -v
   - make -v
+  - ps: $env:path -split ";"
 
 build_script:
   - cd C:\projects\oj\ext\oj
